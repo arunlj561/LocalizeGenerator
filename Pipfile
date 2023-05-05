@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 streamlit = "*"
-googletrans = "*"
+googletrans = "==3.1.0a0"
 
 [dev-packages]
 
