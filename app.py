@@ -65,9 +65,9 @@ def upload():
         if ".strings" in  uploaded_file.name:
             data = uploaded_file.getvalue().decode('utf-8')
             parent_path = pathlib.Path(__file__).parent.parent.resolve()           
-            save_path = os.path.join(parent_path, "LocalizeGenerator/data")
+            save_path = os.path.join(parent_path, "data")
             complete_name = os.path.join(save_path, uploaded_file.name)
-            print(complete_name)        
+            print(complete_name)                    
             destination_file = open(complete_name, "w")
             destination_file.write(data)
             destination_file.close()
