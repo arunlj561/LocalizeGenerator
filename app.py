@@ -89,4 +89,19 @@ if str(st.session_state["upload_state"]) == 'Converted successfully!':
         with open(fileStr, "rb") as file:
             file_content = file.read()
             file_name = os.path.basename(fileStr)
-            st.download_button(label="Click to Download", data=file_content, file_name=file_name)            
+            st.download_button(label="Click to Download", data=file_content, file_name=file_name)
+
+ st.markdown(
+    """<script
+        data-name="BMC-Widget"
+        src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+        data-id="arunlj561"
+        data-description="Support me on Buy me a coffee!"
+        data-message="Thank you for visiting. Buy me a coffee?"
+        data-color="#FF813F"
+        data-position="right"
+        data-x_margin="18"
+        data-y_margin="18"
+    ></script>""",
+    unsafe_allow_html=True,
+)            
