@@ -79,12 +79,12 @@ def upload():
                     source_text = str(str(line.split('=')[1]))
                     st.session_state["upload_state"] = source_text                 
                     dec_lan = detector.translate(source_text, dest="de")                
-                    # final += str(str(line.split('=')[0])) + " = " + dec_lan.text + "\n"
+                    final += str(str(line.split('=')[0])) + " = " + dec_lan.text + "\n"
 
             f = open("uLocalizable.strings",'w')
             f.write(str(final))
             f.close()                
-            # st.session_state["upload_state"] = "Converted" + " successfully!"
+            st.session_state["upload_state"] = "Converted" + " successfully!"
         else :
             st.session_state["upload_state"] = "File not in expected format"
 
