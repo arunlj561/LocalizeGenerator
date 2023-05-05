@@ -73,7 +73,7 @@ def upload():
             # destination_file = open(complete_name, "w")
             # destination_file.write(data)
             # destination_file.close()
-            st.session_state["upload_state"] = "Saved Successfully!"   
+            # st.session_state["upload_state"] = "Saved Successfully!"   
         else :
             st.session_state["upload_state"] = "File not in expected format"
 
