@@ -63,14 +63,27 @@ def upload():
         st.session_state["upload_state"] = "Upload a file first!"
     else:
         if ".strings" in  uploaded_file.name:
-            data = uploaded_file.getvalue().decode('utf-8')
-            parent_path = pathlib.Path(__file__).parent.parent.resolve()                        
-            save_path = os.path.join(parent_path, "")            
-            complete_name = os.path.join(save_path, uploaded_file.name)            
-            destination_file = open(complete_name, "w")
-            destination_file.write(data)
-            destination_file.close()
-            st.session_state["upload_state"] = "Saved Successfully!"   
+            # data = uploaded_file.getvalue().decode('utf-8')
+            # parent_path = pathlib.Path(__file__).parent.parent.resolve()                        
+            # save_path = os.path.join(parent_path, "")            
+            # complete_name = os.path.join(save_path, uploaded_file.name)            
+            # destination_file = open(complete_name, "w")
+            # destination_file.write(data)
+            # destination_file.close()
+            data = uploaded_file.getvalue().decode('utf-8').split('\n')                
+            final = ''
+            detector = Translator()
+            for line in data:
+                count = len(line.split('='))    
+                if  count > 1:
+                    source_text = str(str(line.split('=')[1]))                 
+                    dec_lan = detector.translate(source_text, dest=dest_value)                
+                    final += str(str(line.split('=')[0])) + " = " + dec_lan.text + "\n"
+
+            f = open("uLocalizable.strings",'w')
+            f.write(str(final))
+            f.close()                
+            st.session_state["upload_state"] = "Converted" + " successfully!"
         else :
             st.session_state["upload_state"] = "File not in expected format"
 
