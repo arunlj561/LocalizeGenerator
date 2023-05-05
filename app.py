@@ -70,7 +70,7 @@ def upload():
                 count = len(line.split('='))    
                 if  count > 1:
                     source_text = str(str(line.split('=')[1]))
-                    dec_lan = detector.translate(source_text, dest="de")                
+                    dec_lan = detector.translate(source_text, dest=dest_value)                
                     final += str(str(line.split('=')[0])) + " = " + dec_lan.text + "\n"
             f = open("uLocalizable.strings",'w')
             f.write(str(final))
