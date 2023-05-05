@@ -36,7 +36,7 @@ preview = st.text_area("File Preview", "", height=150, key="preview")
 upload_state = st.text_area("Upload State", "", key="upload_state") 
 
 def convert():
-    fileStr = 'Localizable.strings'    
+    fileStr = 'app/Localizable.strings'    
     if pathlib.Path(fileStr).is_file():                
         with open(fileStr, "rb") as file:
             file_content = file.read()
@@ -70,7 +70,7 @@ def upload():
             destination_file = open(complete_name, "w")
             destination_file.write(data)
             destination_file.close()
-            st.session_state["upload_state"] = complete_name #"Saved Successfully!"   
+            st.session_state["upload_state"] = "Saved Successfully!"   
         else :
             st.session_state["upload_state"] = "File not in expected format"
 
