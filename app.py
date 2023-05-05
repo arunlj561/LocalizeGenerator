@@ -101,3 +101,8 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+footer = st.container()
+
+# add LinkedIn and GitHub links as hyperlinks
+with footer:
+    st.markdown("[LinkedIn](https://www.linkedin.com/in/arun-jangid-18120154/) | [GitHub](http://github.com/arunlj561/)")
