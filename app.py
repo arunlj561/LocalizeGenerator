@@ -64,15 +64,15 @@ def upload():
     else:
         if ".strings" in  uploaded_file.name:
             data = uploaded_file.getvalue().decode('utf-8')
-            parent_path = pathlib.Path(__file__).parent.parent.resolve()
+            parent_path = pathlib.Path(__file__).parent.parent.resolve()            
             st.session_state["upload_state"] = parent_path
             save_path = os.path.join(parent_path, "data")
             st.session_state["upload_state"] = save_path
             complete_name = os.path.join(save_path, uploaded_file.name)
             st.session_state["upload_state"] = complete_name
-            destination_file = open(complete_name, "w")
-            destination_file.write(data)
-            destination_file.close()
+            # destination_file = open(complete_name, "w")
+            # destination_file.write(data)
+            # destination_file.close()
             st.session_state["upload_state"] = "Saved Successfully!"   
         else :
             st.session_state["upload_state"] = "File not in expected format"
