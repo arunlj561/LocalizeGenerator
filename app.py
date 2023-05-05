@@ -84,7 +84,7 @@ def upload():
             f = open("uLocalizable.strings",'w')
             f.write(str(final))
             f.close()                
-            st.session_state["upload_state"] = "Converted" + " successfully!"
+            # st.session_state["upload_state"] = "Converted" + " successfully!"
         else :
             st.session_state["upload_state"] = "File not in expected format"
 
