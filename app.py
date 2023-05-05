@@ -36,7 +36,7 @@ preview = st.text_area("File Preview", "", height=150, key="preview")
 upload_state = st.text_area("Upload State", "", key="upload_state") 
 
 def convert():
-    fileStr = 'data/Localizable.strings'    
+    fileStr = 'Localizable.strings'    
     if pathlib.Path(fileStr).is_file():                
         with open(fileStr, "rb") as file:
             file_content = file.read()
@@ -51,7 +51,7 @@ def convert():
                     dec_lan = detector.translate(source_text, dest=dest_value)                
                     final += str(str(line.split('=')[0])) + " = " + dec_lan.text + "\n"
 
-            f = open("user/Localizable.strings",'w')
+            f = open("uLocalizable.strings",'w')
             f.write(str(final))
             f.close()                
         st.session_state["upload_state"] = "Converted" + " successfully!"
@@ -79,7 +79,7 @@ if str(st.session_state["upload_state"]) == 'Saved Successfully!':
     st.button("Convert", on_click=convert)
 
 if str(st.session_state["upload_state"]) == 'Converted successfully!':        
-    fileStr = 'user/Localizable.strings'    
+    fileStr = 'uLocalizable.strings'    
     if pathlib.Path(fileStr).is_file():                
         with open(fileStr, "rb") as file:
             file_content = file.read()
