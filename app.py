@@ -91,8 +91,7 @@ if str(st.session_state["upload_state"]) == 'Converted successfully!':
             file_name = os.path.basename(fileStr)
             st.download_button(label="Click to Download", data=file_content, file_name=file_name)
 
- st.markdown(
-    """<script
+st.markdown("""<script
         data-name="BMC-Widget"
         src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
         data-id="arunlj561"
