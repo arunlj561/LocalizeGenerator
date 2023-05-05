@@ -63,13 +63,6 @@ def upload():
         st.session_state["upload_state"] = "Upload a file first!"
     else:
         if ".strings" in  uploaded_file.name:
-            # data = uploaded_file.getvalue().decode('utf-8')
-            # parent_path = pathlib.Path(__file__).parent.parent.resolve()                        
-            # save_path = os.path.join(parent_path, "")            
-            # complete_name = os.path.join(save_path, uploaded_file.name)            
-            # destination_file = open(complete_name, "w")
-            # destination_file.write(data)
-            # destination_file.close()
             data = uploaded_file.getvalue().decode('utf-8').split('\n')                
             final = ''
             detector = Translator()
@@ -77,10 +70,8 @@ def upload():
                 count = len(line.split('='))    
                 if  count > 1:
                     source_text = str(str(line.split('=')[1]))
-                    st.session_state["upload_state"] = source_text                 
                     dec_lan = detector.translate(source_text, dest="de")                
                     final += str(str(line.split('=')[0])) + " = " + dec_lan.text + "\n"
-
             f = open("uLocalizable.strings",'w')
             f.write(str(final))
             f.close()                
