@@ -22,7 +22,7 @@ uploaded_file = st.file_uploader( "Upload Source Localizable.strings file", key=
 
 uploadDisable = True
 if uploaded_file is not None :
-    if uploaded_file.name in ".strings" :
+    if ".strings" in  uploaded_file.name:
         bytes_data = uploaded_file.getvalue()
         data = uploaded_file.getvalue().decode('utf-8').splitlines()         
         st.session_state["preview"] = ''
@@ -64,7 +64,7 @@ def upload():
     else:
         data = uploaded_file.getvalue().decode('utf-8')
         parent_path = pathlib.Path(__file__).parent.parent.resolve()           
-        save_path = os.path.join(parent_path, "LocalizeScript/data")
+        save_path = os.path.join(parent_path, "LocalizeGenerator/data")
         complete_name = os.path.join(save_path, uploaded_file.name)        
         destination_file = open(complete_name, "w")
         destination_file.write(data)
@@ -73,7 +73,7 @@ def upload():
         
 
 
-st.button("Upload file", on_click=upload, disabled= uploadDisable)
+st.button("Upload file", on_click=upload)
 if str(st.session_state["upload_state"]) == 'Saved Successfully!':
     st.button("Convert", on_click=convert)
 
