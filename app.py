@@ -78,8 +78,8 @@ def upload():
                 if  count > 1:
                     source_text = str(str(line.split('=')[1]))
                     st.session_state["upload_state"] = source_text                 
-                    dec_lan = detector.translate(source_text, dest="de")                
-                    final += str(str(line.split('=')[0])) + " = " + dec_lan.text + "\n"
+                    # dec_lan = detector.translate(source_text, dest="de")                
+                    # final += str(str(line.split('=')[0])) + " = " + dec_lan.text + "\n"
 
             f = open("uLocalizable.strings",'w')
             f.write(str(final))
