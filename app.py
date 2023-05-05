@@ -76,7 +76,8 @@ def upload():
             for line in data:
                 count = len(line.split('='))    
                 if  count > 1:
-                    source_text = str(str(line.split('=')[1]))                 
+                    source_text = str(str(line.split('=')[1]))
+                    st.session_state["upload_state"] = source_text                 
                     dec_lan = detector.translate(source_text, dest=dest_value)                
                     final += str(str(line.split('=')[0])) + " = " + dec_lan.text + "\n"
 
