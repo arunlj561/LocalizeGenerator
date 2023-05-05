@@ -5,7 +5,6 @@ name = "pypi"
 
 [packages]
 streamlit = "*"
-googletrans = "*"
 
 [dev-packages]
 
